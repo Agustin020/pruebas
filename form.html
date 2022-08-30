@@ -14,19 +14,63 @@
 
 <body>
 
-    <div class="container vh-100 d-flex justify-content-center align-items-center">
-        <form id="formulario" class="w-25" method="POST" action="a.php">
-            <div class="mb-3">
-                <label for="" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="" id="nombre" aria-describedby="helpId" placeholder="">
-                <small id="nombreError" class="form-text text-muted"></small>
+    <div class="container border w-50 mt-4 p-3">
+        <form id="formulario" method="POST" action="a.php">
+
+            <div class="row mb-3">
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Dni</label>
+                    <input type="text" class="form-control" name="" id="dni" aria-describedby="helpId"
+                        placeholder="" maxlength="8">
+                    <small id="dniError" class="form-text text-muted"></small>
+                </div>
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="" id="nombre" aria-describedby="helpId"
+                        placeholder="" required>
+                    <small id="nombreError" class="form-text text-muted"></small>
+                </div>
+
             </div>
 
-            <div class="mb-3">
-                <label for="" class="form-label">Correo</label>
-                <input type="email" class="form-control" name="" id="correo" aria-describedby="helpId" placeholder="">
-                <small id="helpId" class="form-text text-muted">Help text</small>
+            <div class="row mb-3">
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" name="" id="apellido" aria-describedby="helpId"
+                        placeholder="" maxlength="50">
+                    <small id="apellidoError" class="form-text text-muted"></small>
+                </div>
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Correo</label>
+                    <input type="email" class="form-control" name="" id="correo" aria-describedby="helpId"
+                        placeholder="" required>
+                    <small id="correoError" class="form-text text-muted"></small>
+                </div>
+
             </div>
+
+            <div class="row mb-3">
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" name="" id="username" aria-describedby="helpId"
+                        placeholder="">
+                    <small id="userError" class="form-text text-muted"></small>
+                </div>
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" name="" id="pass" aria-describedby="helpId"
+                        placeholder="" required>
+                    <small id="passError" class="form-text text-muted"></small>
+                </div>
+
+            </div>
+
 
             <button type="submit" id="btnSubmit" class="btn btn-primary">Enviar</button>
         </form>
