@@ -5,6 +5,8 @@ const apellido = document.getElementById('apellido');
 const correo = document.getElementById('correo');
 const username = document.getElementById('username');
 const pass = document.getElementById('pass');
+const domicilio = document.getElementById('domicilio');
+const codPostal = document.getElementById('codPostal');
 
 const formElements = {
     dni: false,
@@ -13,6 +15,8 @@ const formElements = {
     correo: false,
     username: false,
     pass: false,
+    domicilio: true,
+    codPostal: true,
 }
 
 form.addEventListener('submit', (e) => {
@@ -49,7 +53,7 @@ nombre.addEventListener('input', (e) => {
 
     const name = e.target.value;
 
-    if (name.length < 3 || name.length === 0) {
+    if (name.length < 3) {
         document.getElementById('nombreError').innerHTML = 'El nombre debe tener más de 3 caracteres';
         formElements.name = false;
     } else {
@@ -63,7 +67,7 @@ apellido.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace('  ', ' ');
     const apellido = e.target.value;
 
-    if (apellido.length < 3 || apellido.length === 0) {
+    if (apellido.length < 3) {
         document.getElementById('apellidoError').innerHTML = 'El nombre debe tener más de 3 caracteres';
         formElements.apellido = false;
     } else {
@@ -110,20 +114,83 @@ pass.addEventListener('input', (e) => {
     }
 });
 
+domicilio.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace('  ', ' ');
+    const domicilio = e.target.value;
+
+    if(domicilio.length === 0){
+        document.getElementById('domicilioError').innerHTML = '';
+        formElements.domicilio = true;
+    }
+    else if(domicilio.length < 4){
+        document.getElementById('domicilioError').innerHTML = 'El domicilio debe tener más de 4 caracteres';
+        formElements.domicilio = false;
+    }else{
+        document.getElementById('domicilioError').innerHTML = '';
+        formElements.domicilio = true;
+    }
+});
+
+codPostal.addEventListener('input', (e) => {
+    const numero = /^[0-9]+$/;
+    if (!numero.test(e.target.value)) {
+        e.target.value = e.target.value.substring(0, e.target.value.length - 1);
+    }
+
+    const codPostal = e.target.value;
+
+    if(codPostal.length === 0){
+        document.getElementById('codPostalError').innerHTML = '';
+        formElements.codPostal = true;
+    }
+    else if(codPostal.length < 4){
+        document.getElementById('codPostalError').innerHTML = 'El código postal debe tener 4 dígitos';
+        formElements.codPostal = false;
+    }else{
+        document.getElementById('codPostalError').innerHTML = '';
+        formElements.codPostal = true;
+    }
+});
+
 
 //Formulario invalido o vacio
 //---------------------------
+
+dni.addEventListener('invalid', (e) => {
+    e.preventDefault();
+    e.target.setCustomValidity('');
+
+    if (e.target.value.length === 0) {
+        document.getElementById('dniError').innerHTML = 'Este campo es obligatorio';
+        formElements.dni = false;
+    }
+
+    formElements.dni = false;
+
+});
+
+
 nombre.addEventListener('invalid', (e) => {
     e.preventDefault();
     e.target.setCustomValidity("");
 
     if (e.target.value.length === 0) {
         document.getElementById('nombreError').innerHTML = 'Este campo es obligatorio';
-    } else {
-        document.getElementById('nombreError').innerHTML = 'El nombre debe tener más de 3 caracteres';
     }
 
     formElements.name = false;
+});
+
+apellido.addEventListener('invalid', (e) => {
+    e.preventDefault();
+    e.target.setCustomValidity("");
+
+    if (e.target.value.length === 0) {
+        document.getElementById('apellidoError').innerHTML = 'Este campo es obligatorio';
+    }
+
+    formElements.apellido = false;
+
 });
 
 correo.addEventListener('invalid', (e) => {
@@ -132,11 +199,21 @@ correo.addEventListener('invalid', (e) => {
 
     if (e.target.value.length === 0) {
         document.getElementById('correoError').innerHTML = 'Este campo es obligatorio';
-    } else {
-        document.getElementById('correoError').innerHTML = 'Correo Incorrecto';
     }
 
     formElements.correo = false;
+});
+
+username.addEventListener('invalid', (e) => {
+    e.preventDefault();
+    e.target.setCustomValidity('');
+
+    if (e.target.value.length === 0) {
+        document.getElementById('userError').innerHTML = 'Este campo es obligatorio';
+    }
+
+    formElements.username = false;
+
 });
 
 pass.addEventListener('invalid', (e) => {
@@ -145,9 +222,8 @@ pass.addEventListener('invalid', (e) => {
 
     if (e.target.value.length === 0) {
         document.getElementById('passError').innerHTML = 'Este campo es obligatorio';
-    } else {
-        document.getElementById('passError').innerHTML = 'La contraseña debe tener más de 8 caracteres';
     }
 
     formElements.pass = false;
 });
+
