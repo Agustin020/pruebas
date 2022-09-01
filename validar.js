@@ -11,6 +11,10 @@ const departamento = document.getElementById('departamento');
 const fechaNac = document.getElementById('fechaNac');
 const lugarNac = document.getElementById('lugarNac');
 const cel = document.getElementById('cel');
+const carrera = document.getElementById('carrera');
+const sede = document.getElementById('sede');
+const anioCursado = document.getElementById('anioCursado');
+const checkMaterias = document.getElementsByName('materias[]');
 
 const formElements = {
     dni: false,
@@ -25,13 +29,17 @@ const formElements = {
     fechaNac: true,
     lugarNac: true,
     celular: false,
+    carrera: false,
+    sede: false,
+    anioCursado: false,
+    checkMaterias: false,
 }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formValues = Object.values(formElements);
     const valid = formValues.findIndex((value) => value == false);
-    if (valid === -1) {
+    if (valid === -1 && validarCheckMaterias() === true) {
         form.submit();
     } else {
         alert('Verificar los errores');
@@ -208,21 +216,75 @@ lugarNac.addEventListener('input', (e) => {
 
 cel.addEventListener('input', (e) => {
     const numero = /^[0-9]+$/;
-    if(!numero.test(e.target.value)){
+    if (!numero.test(e.target.value)) {
         e.target.value = e.target.value.substring(0, e.target.value - 1);
     }
 
     const cel = e.target.value;
 
-    if(cel.length < 10){
+    if (cel.length < 10) {
         document.getElementById('celError').innerHTML = 'El número de celular debe tener 10 dígitos';
         formElements.celular = false;
-    }else{
+    } else {
         document.getElementById('celError').innerHTML = '';
         formElements.celular = true;
     }
 
 });
+
+carrera.addEventListener('change', (e) => {
+    const carrera = e.target.value;
+
+    if (carrera === '') {
+        document.getElementById('carreraError').innerHTML = 'Debe seleccionar una opción';
+        formElements.carrera = false;
+    } else {
+        document.getElementById('carreraError').innerHTML = '';
+        formElements.carrera = true;
+    }
+});
+
+sede.addEventListener('change', (e) => {
+    const sede = e.target.value;
+
+    if (sede === '') {
+        document.getElementById('sedeError').innerHTML = 'Debe seleccionar una opción';
+        formElements.sede = false;
+    } else {
+        document.getElementById('sedeError').innerHTML = '';
+        formElements.sede = true;
+    }
+});
+
+anioCursado.addEventListener('change', (e) => {
+    const anioCursado = e.target.value;
+
+    if (anioCursado === '') {
+        document.getElementById('anioError').innerHTML = 'Debe seleccionar una opción';
+        formElements.anioCursado = false;
+    } else {
+        document.getElementById('anioError').innerHTML = '';
+        formElements.anioCursado = true;
+    }
+});
+
+
+
+function validarCheckMaterias() {
+    var i = 0;
+
+    while (i < checkMaterias.length) {
+        if (checkMaterias[i].checked) {
+            al_menos_uno = true
+        }
+
+        i++;
+
+        return al_menos_uno;
+    }
+}
+
+
 
 //Formulario invalido o vacio
 //---------------------------
@@ -313,11 +375,46 @@ cel.addEventListener('invalid', (e) => {
     e.preventDefault();
     e.target.setCustomValidity('');
 
-    if(e.target.value.length === 0){
+    if (e.target.value.length === 0) {
         document.getElementById('celError').innerHTML = 'Este campo es obligatorio';
-        
+
     }
     formElements.celular = false;
 
 });
 
+carrera.addEventListener('invalid', (e) => {
+
+    e.preventDefault();
+    e.target.setCustomValidity('');
+
+    if (e.target.value === '') {
+        document.getElementById('carreraError').innerHTML = 'Este campo es obligatorio';
+    }
+    formElements.carrera = false;
+
+});
+
+sede.addEventListener('invalid', (e) => {
+
+    e.preventDefault();
+    e.target.setCustomValidity('');
+
+    if (e.target.value === '') {
+        document.getElementById('sedeError').innerHTML = 'Este campo es obligatorio';
+    }
+
+    formElements.sede = false;
+});
+
+anioCursado.addEventListener('invalid', (e) => {
+
+    e.preventDefault();
+    e.target.setCustomValidity('');
+
+    if (e.target.value === '') {
+        document.getElementById('anioError').innerHTML = 'Este campo es obligatorio';
+    }
+
+    formElements.anioCursado = false;
+});

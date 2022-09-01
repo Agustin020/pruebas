@@ -134,7 +134,7 @@
                 <div class="col-12">
 
                     <label for="" class="form-label">Carrera en el que se inscribe (*)</label>
-                    <select class="form-select" name="" id="carrera">
+                    <select class="form-select" name="" id="carrera" required>
                         <option value="" selected>Seleccione...</option>
                         <option>Tecnicatura Superior en Desarrollo de Software</option>
                         <option>Tecnicatura Superior en Fotografia Creativa y Diseño Fotografico</option>
@@ -149,7 +149,7 @@
                 <div class="col-xxl">
 
                     <label for="" class="form-label">Sede en donde va a cursar (*)</label>
-                    <select class="form-select" name="" id="sede">
+                    <select class="form-select" name="" id="sede" required>
                         <option value="" selected>Seleccione...</option>
                         <option>Istanbul</option>
                         <option>Jakarta</option>
@@ -160,7 +160,7 @@
                 <div class="col-xxl">
 
                     <label for="" class="form-label">Año de cursado (*)</label>
-                    <select class="form-select" name="" id="anioCursado">
+                    <select class="form-select" name="" id="anioCursado" required>
                         <option value="" selected>Seleccione...</option>
                         <option>Istanbul</option>
                         <option>Jakarta</option>
@@ -175,21 +175,30 @@
 
                 <div class="col-8">
 
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-1">
                         <div class="input-group-text">
-                            <input class="form-check-input mt-0" type="checkbox" value=""
+                            <input class="form-check-input mt-0" type="checkbox" name="materias[]" value="1"
                                 aria-label="Checkbox for following text input">
                         </div>
                         <input type="text" class="form-control" value="Programación I"
                             aria-label="Text input with checkbox" disabled>
                     </div>
 
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-1">
                         <div class="input-group-text">
-                            <input class="form-check-input mt-0" type="checkbox" value=""
+                            <input class="form-check-input mt-0" type="checkbox" name="materias[]" value="2"
                                 aria-label="Checkbox for following text input">
                         </div>
-                        <input type="text" class="form-control" value="Programación I"
+                        <input type="text" class="form-control" value="Programación II"
+                            aria-label="Text input with checkbox" disabled>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group-text">
+                            <input class="form-check-input mt-0" type="checkbox" name="materias[]" value="3"
+                                aria-label="Checkbox for following text input">
+                        </div>
+                        <input type="text" class="form-control" value="Programación III"
                             aria-label="Text input with checkbox" disabled>
                     </div>
 
@@ -197,8 +206,12 @@
 
             </div>
 
+            <div class="row mb-3 d-flex justify-content-end align-items-end">
 
-            <button type="submit" id="btnSubmit" class="btn btn-primary">Enviar</button>
+                <button type="submit" id="btnSubmit" class="btn btn-primary">Enviar</button>
+
+            </div>
+
         </form>
     </div>
 
