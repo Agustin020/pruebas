@@ -20,16 +20,16 @@
             <div class="row mb-3">
 
                 <div class="col-xxl">
-                    <label for="" class="form-label">Dni</label>
-                    <input type="text" class="form-control" name="" id="dni" aria-describedby="helpId"
-                        placeholder="" maxlength="8" required>
+                    <label for="" class="form-label">Dni (*)</label>
+                    <input type="text" class="form-control" name="" id="dni" aria-describedby="helpId" placeholder=""
+                        maxlength="8" required>
                     <small id="dniError" class="form-text text-muted"></small>
                 </div>
 
                 <div class="col-xxl">
-                    <label for="" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="" id="nombre" aria-describedby="helpId"
-                        placeholder="" required>
+                    <label for="" class="form-label">Nombre (*)</label>
+                    <input type="text" class="form-control" name="" id="nombre" aria-describedby="helpId" placeholder=""
+                        required>
                     <small id="nombreError" class="form-text text-muted"></small>
                 </div>
 
@@ -38,14 +38,14 @@
             <div class="row mb-3">
 
                 <div class="col-xxl">
-                    <label for="" class="form-label">Apellido</label>
+                    <label for="" class="form-label">Apellido (*)</label>
                     <input type="text" class="form-control" name="" id="apellido" aria-describedby="helpId"
                         placeholder="" maxlength="50" required>
                     <small id="apellidoError" class="form-text text-muted"></small>
                 </div>
 
                 <div class="col-xxl">
-                    <label for="" class="form-label">Correo</label>
+                    <label for="" class="form-label">Correo (*)</label>
                     <input type="email" class="form-control" name="" id="correo" aria-describedby="helpId"
                         placeholder="" required>
                     <small id="correoError" class="form-text text-muted"></small>
@@ -56,14 +56,14 @@
             <div class="row mb-3">
 
                 <div class="col-xxl">
-                    <label for="" class="form-label">Nombre de usuario</label>
+                    <label for="" class="form-label">Nombre de usuario (*)</label>
                     <input type="text" class="form-control" name="" id="username" aria-describedby="helpId"
                         placeholder="" required>
                     <small id="userError" class="form-text text-muted"></small>
                 </div>
 
                 <div class="col-xxl">
-                    <label for="" class="form-label">Contraseña</label>
+                    <label for="" class="form-label">Contraseña (*)</label>
                     <input type="password" class="form-control" name="" id="pass" aria-describedby="helpId"
                         placeholder="" required>
                     <small id="passError" class="form-text text-muted"></small>
@@ -85,6 +85,114 @@
                     <input type="text" class="form-control" name="" id="codPostal" aria-describedby="helpId"
                         placeholder="" maxlength="4">
                     <small id="codPostalError" class="form-text text-muted"></small>
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Departamento (*)</label>
+                    <select class="form-select" name="" id="departamento" required>
+                        <option value="" selected>Seleccione...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <small id="departamentoError" class="form-text text-muted"></small>
+                </div>
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" name="" id="fechaNac" aria-describedby="helpId"
+                        placeholder="">
+                    <small id="fechaNacError" class="form-text text-muted"></small>
+                </div>
+
+                <div class="col-xxl">
+                    <label for="" class="form-label">Lugar de nacimiento</label>
+                    <input type="text" class="form-control" name="" id="lugarNac" aria-describedby="helpId"
+                        placeholder="">
+                    <small id="lugarNacError" class="form-text text-muted"></small>
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-xxl-6">
+                    <label for="" class="form-label">Celular</label>
+                    <input type="text" class="form-control" name="" id="cel" aria-describedby="helpId" placeholder=""
+                        maxlength="10" required>
+                    <small id="celError" class="form-text text-muted"></small>
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-12">
+
+                    <label for="" class="form-label">Carrera en el que se inscribe (*)</label>
+                    <select class="form-select" name="" id="carrera">
+                        <option value="" selected>Seleccione...</option>
+                        <option>Tecnicatura Superior en Desarrollo de Software</option>
+                        <option>Tecnicatura Superior en Fotografia Creativa y Diseño Fotografico</option>
+                    </select>
+                    <small id="carreraError" class="form-text text-muted"></small>
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-xxl">
+
+                    <label for="" class="form-label">Sede en donde va a cursar (*)</label>
+                    <select class="form-select" name="" id="sede">
+                        <option value="" selected>Seleccione...</option>
+                        <option>Istanbul</option>
+                        <option>Jakarta</option>
+                    </select>
+                    <small id="sedeError" class="form-text text-muted"></small>
+                </div>
+
+                <div class="col-xxl">
+
+                    <label for="" class="form-label">Año de cursado (*)</label>
+                    <select class="form-select" name="" id="anioCursado">
+                        <option value="" selected>Seleccione...</option>
+                        <option>Istanbul</option>
+                        <option>Jakarta</option>
+                    </select>
+                    <small id="anioError" class="form-text text-muted"></small>
+
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-8">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <input class="form-check-input mt-0" type="checkbox" value=""
+                                aria-label="Checkbox for following text input">
+                        </div>
+                        <input type="text" class="form-control" value="Programación I"
+                            aria-label="Text input with checkbox" disabled>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <input class="form-check-input mt-0" type="checkbox" value=""
+                                aria-label="Checkbox for following text input">
+                        </div>
+                        <input type="text" class="form-control" value="Programación I"
+                            aria-label="Text input with checkbox" disabled>
+                    </div>
+
                 </div>
 
             </div>
