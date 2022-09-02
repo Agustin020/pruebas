@@ -39,7 +39,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formValues = Object.values(formElements);
     const valid = formValues.findIndex((value) => value == false);
-    if (valid === -1 && validarCheckMaterias() === true) {
+    if (valid === -1) {
         form.submit();
     } else {
         alert('Verificar los errores');
@@ -232,17 +232,23 @@ cel.addEventListener('input', (e) => {
 
 });
 
-carrera.addEventListener('change', (e) => {
-    const carrera = e.target.value;
+if (!carrera.disabled) {
 
-    if (carrera === '') {
-        document.getElementById('carreraError').innerHTML = 'Debe seleccionar una opción';
-        formElements.carrera = false;
-    } else {
-        document.getElementById('carreraError').innerHTML = '';
-        formElements.carrera = true;
-    }
-});
+    carrera.addEventListener('change', (e) => {
+        const carrera = e.target.value;
+
+        if (carrera === '') {
+            document.getElementById('carreraError').innerHTML = 'Debe seleccionar una opción';
+            formElements.carrera = false;
+        } else {
+            document.getElementById('carreraError').innerHTML = '';
+            formElements.carrera = true;
+        }
+    });
+
+} else {
+    formElements.carrera = true;
+}
 
 sede.addEventListener('change', (e) => {
     const sede = e.target.value;
@@ -268,19 +274,21 @@ anioCursado.addEventListener('change', (e) => {
     }
 });
 
-
+validarCheckMaterias();
 
 function validarCheckMaterias() {
     var i = 0;
 
     while (i < checkMaterias.length) {
-        if (checkMaterias[i].checked) {
-            al_menos_uno = true
-        }
+        checkMaterias[i].addEventListener('change', (e) => {
+            if(e.target.checked){
+                formElements.checkMaterias = true;
+            }
+
+        });
 
         i++;
 
-        return al_menos_uno;
     }
 }
 

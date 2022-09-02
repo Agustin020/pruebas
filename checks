@@ -73,22 +73,27 @@
         </script>
 
     <script>
+
+        var formel = {
+            check: false,
+        }
+
         function validarCheck() {
 
             var checkMaterias = document.getElementsByName('materias[]');
 
             
             var i = 0;
-            var al_menos_uno = false;
+            
 
             while (i < checkMaterias.length) {
                 if (checkMaterias[i].checked) {
-                    al_menos_uno = true;
+                    formel.check = true;
                 }
                 i++;
             }
 
-            if (!al_menos_uno) {
+            if (!formel.check) {
                 alert('seleccione algo');
                 event.preventDefault();
             } else {
